@@ -1,0 +1,14 @@
+# Use an official Golang runtime as the base image
+FROM golang:1.16
+
+# Set the working directory inside the container
+WORKDIR /go/src/projectfurball
+
+# Copy the source code into the container
+COPY ./ /go/src/projectfurball/
+
+# Build the Go application
+RUN go build -o docker_site.go
+
+# Set the entry point command to run the application
+CMD ["./docker_site.go"]
